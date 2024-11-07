@@ -4,6 +4,13 @@ library(tidyverse)
 library(lubridate)
 library(reactable)
 
+# Workaround for Chromium Issue 468227
+downloadButton <- function(...) {
+  tag <- shiny::downloadButton(...)
+  tag$attribs$download <- NULL
+  tag
+}
+
 # Viðmót sett upp
 ui <- fluidPage(
   
